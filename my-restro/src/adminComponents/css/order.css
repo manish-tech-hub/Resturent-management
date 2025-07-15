@@ -1,0 +1,195 @@
+/* Orders Page Container */
+.admin-orders-container {
+  padding: 2rem;
+  background: #f8f9fc;
+  box-sizing: border-box;
+  
+}
+
+/* Desktop with sidebar */
+.admin-orders-container.with-sidebar {
+  margin-left: 250px;
+  min-height: calc(100dvh - 70px);
+}
+
+/* Page Header */
+.admin-orders-container h2 {
+  margin-bottom: 0.5rem;
+  color: #4e73df;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+  padding-top: 15px;
+}
+
+/* Action Bar */
+.orders-actions {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Search Input */
+.orders-search {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem 1rem;
+  border: 1.5px solid #d1d3e2;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.orders-search:focus {
+  border-color: #4e73df;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.15);
+}
+
+/* Table Wrapper */
+.orders-table-wrapper {
+  overflow-x: auto;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+  border-radius: 8px;
+  background: white;
+  margin-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table Styles */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.orders-table thead {
+  background-color: #4e73df;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e3e6f0;
+  font-size: 0.95rem;
+}
+
+.orders-table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Action Buttons - Updated for mobile */
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+  padding: 0.5rem;
+}
+
+.action-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.action-btn.view {
+  color: #4e73df;
+}
+
+.action-btn.view:hover {
+  background-color: #dbe5fb;
+}
+
+.action-btn.edit {
+  color: #1cc88a;
+}
+
+.action-btn.edit:hover {
+  background-color: #d1f0e7;
+}
+
+.action-btn.delete {
+  color: #e74a3b;
+}
+
+.action-btn.delete:hover {
+  background-color: #fbdada;
+}
+
+/* Empty State */
+.no-orders {
+  text-align: center;
+  padding: 2rem;
+  color: #858796;
+  font-style: italic;
+}
+
+/* ========== Mobile Responsive Styles ========== */
+
+@media (max-width: 768px) {
+  .admin-orders-container {
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .orders-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .orders-search {
+    max-width: 100%;
+  }
+
+  .orders-table-wrapper {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Optimized action buttons for mobile */
+  .actions-cell {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .action-btn {
+    padding: 0.5rem;
+    font-size: 1rem;
+    min-width: 36px;
+    justify-content: center;
+  }
+}

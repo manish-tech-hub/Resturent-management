@@ -1,0 +1,119 @@
+.about-us {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: #fff8f1;
+  padding: 60px 20px;
+  gap: 40px;
+}
+
+.about-content {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  color: #B86AA7;
+  margin-bottom: 20px;
+  margin-left: 30%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-image {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+/* Staff Section */
+.staff-section {
+  background: #fef6f0;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.staff-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  margin-left: -25px;
+  color: #B86AA7;
+  margin-top: -20px;
+}
+
+.staff-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.staff-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.staff-card:hover {
+  transform: translateY(-5px);
+}
+
+.staff-card img {
+  width: 100%;
+  border-radius: 12px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.staff-card h3 {
+  font-size: 20px;
+  margin: 12px 0 6px;
+  color: #333;
+}
+
+.staff-card p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Contact Section */
+.contact-section {
+  background: #fff8f0;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-left: -25px;
+  color: #B86AA7;
+}
+
+.contact-section p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.map {
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+}
+

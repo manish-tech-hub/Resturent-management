@@ -1,0 +1,205 @@
+.navbar{
+    background-color:#B86AA7;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-logo{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: yellow;
+    font-family: "monospace", "cursive";
+    font-style: oblique;
+}
+.navbar-links{
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+}
+.navbar-links li{
+    display: inline;
+}
+.navbar-links a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: italic;
+    transition: all 0.3s ease;
+    display: inline-block;
+    color: white;
+   
+}
+.navbar-links a:hover{
+    color:yellow ;
+    text-decoration: underline;
+    transform: scale(1.2);
+}
+.navbar-icons{
+    display: flex;
+    align-items: center;
+    
+}
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#search {
+  border: 3px solid white;
+  height: 40px;
+  width: 220px;
+  border-radius: 16px;
+  padding: 0 40px 0 10px; /* space for icon */
+  outline: none;
+  font-size: 14px;
+  transition: transform 0.2s;
+  background-color:lightgrey;
+}
+
+#search:hover {
+  border-color: yellow;
+  transform: scale(1.05);
+}
+
+/* Style the search button (icon inside input) */
+.submit-btn {
+  position: absolute;
+  right: 10px;
+  top: 8%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  background-color: lightgray;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.search-icon {
+  color:white;
+  font-size: 1.5rem;
+  padding-top: 6px;
+  
+}
+
+.submit-btn:hover .search-icon {
+  color: yellow;
+  font-size: 1.8rem;
+}
+
+.navbar-icons .icon {
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-left: 1rem;
+}
+
+.navbar-icons .icon:hover {
+  color: yellow;
+  transform: scale(1.2);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.menu-toggle:hover{
+    color: yellow;
+    transform: scale(1.05);
+}
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .navbar-logo {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+
+  .navbar-top-row {
+    width: 100%;
+    align-items: left;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    color: white;
+    background-color: #B86AA7;
+    border: none;
+    cursor: pointer;
+    margin-left: 0;
+    margin-bottom: -15%;
+  }
+
+  .search-wrapper {
+    position: relative;
+    flex-direction: row;
+    margin-left: -5%;
+  }
+
+  #search {
+    margin-left: 25%;
+    margin-top: -70%;
+    width: 85%;
+    height: 40px;
+    font-size: 14px;
+    border: 2px solid white;
+    border-radius: 16px;
+    outline: none;
+    transition: transform 0.2s;
+  }
+
+  .submit-btn {
+    position: absolute;
+    right: -15px;
+    top:-3%;
+    width: 28px;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+  .submit-btn:hover{
+    transform: scale(1.2);
+    
+  }
+  .navbar-icons {
+    display: flex;
+    margin-top: 0;  /* Reset negative margin */
+    gap: 1rem;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Key changes here */
+  .navbar-links {
+    background-color: #B86AA7;
+    width: 100%;
+    flex-direction: row;  /* Stack links vertically */
+    align-items: center;
+    display: none;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;  /* Use flex, not block */
+  }
+}
+

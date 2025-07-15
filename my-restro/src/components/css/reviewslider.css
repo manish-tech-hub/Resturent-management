@@ -1,0 +1,133 @@
+/* Container for slider - center aligned */
+.review-slider-container {
+  max-width: 100%;
+  padding: 40px 20px;
+  background-color: #fff5ec;
+  border-radius: 25px;
+  overflow: hidden;
+}
+#rw{
+  color:#B86AA7 ;
+  font-family: monospace cursive;
+  font-style: oblique;
+  margin-left: 40%;
+  padding-bottom: 25px;
+}
+
+/* Each card style */
+.review-card {
+  background:#fff5ec;
+  border-radius: 60px;
+  padding: 20px 15px;
+  margin: 10px;
+  text-align: center;
+  transition: transform 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #2d3748;
+  user-select: none;
+}
+
+/* Highlight active slide */
+.slick-center .review-card {
+  transform: scale(1.1);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  background: #B86AA7;
+}
+
+/* Avatar image */
+.review-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 18px;
+  border: 4px solid #68d391;
+  box-shadow: 0 4px 15px rgba(104, 211, 145, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.review-avatar:hover {
+  box-shadow: 0 8px 25px rgba(104, 211, 145, 0.8);
+}
+
+/* Review text */
+.review-text {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.4;
+  color: #4a5568;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  letter-spacing: 0.02em;
+  flex-grow: 1;
+}
+
+/* Reviewer name */
+.review-name {
+  font-weight: 700;
+  font-size: 20px;
+  color: #2f855a;
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
+/* Reviewer role */
+.review-role {
+  font-size: 14px;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
+
+/* Slick dots customization */
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-dots li button:before {
+  font-size: 14px;
+  color: #718096;
+  opacity: 0.6;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #68d391;
+  opacity: 1;
+}
+
+/* Responsive Adjustments */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .review-slider-container {
+    padding: 30px 15px;
+  }
+  #rw{
+    margin-left: 17%;
+  }
+
+  .review-card {
+    padding: 20px 15px;
+  }
+
+  .review-avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .review-text {
+    font-size: 16px;
+  }
+
+  .review-name {
+    font-size: 18px;
+  }
+}
+

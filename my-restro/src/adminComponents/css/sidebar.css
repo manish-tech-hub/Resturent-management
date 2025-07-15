@@ -1,0 +1,49 @@
+.admin-sidebar {
+  width: 220px;
+  height: 100%;
+  background-color: #1e293b;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  overflow-y: auto;
+}
+
+.admin-logo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #38bdf8;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f1f5f9;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #334155;
+}
+
+.sidebar-link.logout {
+  margin-top: auto;
+  color: #f87171;
+  background-color: #334155;
+}
+.sidebar-link.logout:hover{
+  color: #f1f5f9;
+}
+

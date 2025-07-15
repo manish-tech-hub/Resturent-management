@@ -1,0 +1,123 @@
+/* === Full Background === */
+.login-page {
+  height: 100vh;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* === Split Card === */
+.login-card-split {
+  display: flex;
+  width: 50rem;
+  max-width: 1000px;
+  background: rgba(44, 62, 80, 1); /* #2c3e50 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(44, 62, 80, 1);
+  height: 35rem;
+}
+
+/* === Left Side (Image) === */
+.login-image-side {
+  flex: 1;
+  background-color: #111;
+}
+
+.restaurant-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === Right Side (Form) === */
+.login-form-side {
+  flex: 1;
+  padding: 50px 40px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* === Titles === */
+.login-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #B86AA7; /* Purple pink */
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #B86AA7;
+  margin-bottom: 30px;
+}
+
+/* === Form === */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #B86AA7;
+  font-size: 13px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #B86AA7;
+  border-radius: 8px;
+  color: darkgray;
+  font-size: 14px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(88, 59, 4, 0.15);
+}
+
+.login-input:focus {
+  border-color: #B86AA7;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #B86AA7;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #e399d6;
+}
+
+/* === Responsive: Stack vertically on small screens === */
+@media (max-width: 768px) {
+  .login-card-split {
+    flex-direction: column;
+  }
+
+  .login-image-side {
+    display: none;
+  }
+
+  .login-form-side {
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding: 30px 20px;
+  }
+}

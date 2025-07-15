@@ -1,0 +1,138 @@
+/* Full background */
+.login-page {
+  height: 100vh;
+  background: linear-gradient(to right, #ffe4c4, #fbc2eb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  
+}
+
+/* Split card */
+.login-card-split {
+  display: flex;
+  width: 85rem;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(234, 0, 255, 0.281);
+  height: 35rem;
+}
+
+/* Left image side */
+.login-image-side {
+  flex: 1;
+  background-color: #111;
+}
+
+.restaurant-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right form side */
+.login-form-side {
+  flex: 1;
+  padding: 50px 40px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Titles */
+.login-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #B86AA7;
+  text-shadow: 0 0 10px #B86AA7;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #B86AA7;
+  margin-bottom: 30px;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #B86AA7;
+  font-size: 13px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #B86AA7;
+  border-radius: 8px;
+  color: darkgray;
+  font-size: 14px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.15);
+}
+
+.login-input:focus {
+  border-color: #B86AA7;
+  box-shadow: 0 0 8px #e399d6, 0 0 12px #f1a4e4;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #B86AA7;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #ff9f43;
+}
+
+.login-button:hover {
+  background-color: #e399d6;
+  box-shadow: 0 0 20px #ffa502;
+}
+
+.forgot-password {
+  font-size: 12px;
+  margin-top: 15px;
+  color:#B86AA7;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Responsive: Stack vertically */
+@media (max-width: 768px) {
+  .login-card-split {
+    flex-direction: column;
+  }
+
+  .login-image-side{
+    display: none;
+  }
+  .login-form-side {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .login-form-side {
+    padding: 30px 20px;
+  }
+}

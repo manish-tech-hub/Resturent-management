@@ -1,0 +1,19 @@
+html {
+  scroll-behavior: smooth;
+}
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+.content-container {
+  flex: 1 0 auto;  /* grow and fill space */
+  /* You can add padding here if needed */
+}

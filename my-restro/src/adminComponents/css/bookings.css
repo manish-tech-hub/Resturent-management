@@ -1,0 +1,172 @@
+/* Booking Page Container */
+.admin-booking-container {
+  padding: 2rem;
+  background: #f8f9fc;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease;
+  
+}
+
+/* Desktop with sidebar */
+.admin-booking-container.with-sidebar {
+  margin-left: 250px;
+  min-height: calc(100dvh - 70px); /* Using dvh for better mobile support */
+}
+
+/* Page Header */
+.admin-booking-container h2 {
+  color: #4e73df;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Search Container */
+.booking-search-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.booking-search {
+  width: 300px;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  border: 1.5px solid #d1d3e2;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.booking-search:focus {
+  border-color: #4e73df;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  right: 1rem;
+  color: #6c757d;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+  border-radius: 8px;
+  background: white;
+  margin-bottom: 2rem;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Table Styles */
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.booking-table thead {
+  background-color: #4e73df;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e3e6f0;
+  font-size: 0.95rem;
+}
+
+.booking-table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Action Buttons */
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  min-width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn.edit {
+  color: #1cc88a;
+}
+
+.action-btn.edit:hover {
+  background-color: #d1f0e7;
+}
+
+.action-btn.delete {
+  color: #e74a3b;
+}
+
+.action-btn.delete:hover {
+  background-color: #fbdada;
+}
+
+/* Empty State */
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  color: #858796;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* ========== Mobile Responsive Styles ========== */
+
+
+@media (max-width: 768px) {
+  .admin-booking-container {
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .booking-search-container {
+    justify-content: flex-start;
+  }
+
+  .booking-search {
+    width: 100%;
+    max-width: 400px;
+  padding-right: 2.5rem;
+  }
+
+  .table-wrapper {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .actions-cell {
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+}
+

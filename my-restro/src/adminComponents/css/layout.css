@@ -1,0 +1,41 @@
+.admin-layout {
+  display: flex;
+  min-height: 100dvh; /* Using dvh for better mobile support */
+  flex-direction: column;
+  width: 100%;
+}
+
+.admin-main {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.admin-content {
+  padding: 20px;
+  background-color: #f4f6f9;
+  flex: 1;
+  overflow-y: auto; /* Allows content scrolling */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .admin-layout {
+    min-height: 100vh; /* Fallback for older browsers */
+    min-height: 100dvh;
+    display: block; /* Change flex to block for mobile */
+  }
+
+  .admin-main {
+    display: block;
+    height: auto;
+  }
+
+  .admin-content {
+    padding: 5px;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    min-height: auto;
+  }
+}

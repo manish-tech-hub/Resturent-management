@@ -1,0 +1,83 @@
+.view-order-container {
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  transition: margin-left 0.3s;
+}
+
+.view-order-container.full-width {
+  margin-left: 250;
+}
+
+.view-order-container.with-sidebar {
+  margin-left: 300px; /* adjust this value based on your sidebar width */
+}
+
+.view-order-container h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: #222;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.view-order-container h3 {
+  font-size: 22px;
+  margin: 24px 0 10px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+.view-order-container p {
+  margin: 6px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.view-order-container strong {
+  color: #111;
+}
+
+.view-order-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.view-order-container li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.view-order-container li img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .view-order-container {
+    padding: 20px;
+    margin-left: 0 !important;
+  }
+
+  .view-order-container li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .view-order-container li img {
+    margin-bottom: 8px;
+  }
+}
