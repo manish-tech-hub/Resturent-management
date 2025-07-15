@@ -41,7 +41,7 @@ const url = process.env.MONGODB_URI;
 // const url = 'mongodb+srv://manish:ramsita@cluster0.2chdzeq.mongodb.net/resturent-db?retryWrites=true&w=majority&appName=Cluster0';
 
 const databasename = "resturent-db";
-const JWT_SECRET = "mySecretKey";
+const JWT_SECRET = process.env.JWT_SECRET;
 let dbcon;
 
 // Connect to MongoDB and start the server only after connection
