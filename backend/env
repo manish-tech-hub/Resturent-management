@@ -1,0 +1,1 @@
+mongosh "mongodb+srv://cluster0.2chdzeq.mongodb.net" --username manish
