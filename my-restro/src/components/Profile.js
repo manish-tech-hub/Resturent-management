@@ -12,7 +12,7 @@ const Profile = () => {
     const fetchUserdata= async()=>{
       const token = localStorage.getItem("token");
       try{
-        const res =  await axios.get("http://localhost:3001/api/profile",{headers:{Authorization:`Bearer ${token}`}});
+        const res =  await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/profile",{headers:{Authorization:`Bearer ${token}`}});
         setUser(res.data)
       }catch(err){
         console.error("failed to load data", err)
@@ -22,7 +22,7 @@ const Profile = () => {
     const fetchFavItem=async()=>{
       const token = localStorage.getItem("token");
       try{
-        const res = await axios.get("http://localhost:3001/api/fav-items",{headers:{Authorization:`Bearer ${token}`}});
+        const res = await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/fav-items",{headers:{Authorization:`Bearer ${token}`}});
         setFavItem(res.data.items || [])
       }catch(err){
         console.error("failed to load data", err)
@@ -31,7 +31,7 @@ const Profile = () => {
     const fethOrederHistory=async()=>{
       const token = localStorage.getItem("token");
       try{
-        const res = await axios.get("http://localhost:3001/api/order-history",{headers:{Authorization:`Bearer ${token}`}});
+        const res = await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/order-history",{headers:{Authorization:`Bearer ${token}`}});
         setOrderHistory(res.data.orders || []);
       }catch(err){
         console.error("failed to load data", err)
@@ -51,7 +51,7 @@ const Profile = () => {
       <div className="profile-header">
         <Logout/>
         <div className="profile-image-container">
-          <img src={`http://localhost:3001${user.profileImage}`} alt="Profile" className="profile-image" />
+          <img src={`https://resturent-management-backend-xhsx.onrender.com${user.profileImage}`} alt="Profile" className="profile-image" />
         </div>
         <div className="profile-info">
           <h1>{user.name}</h1>

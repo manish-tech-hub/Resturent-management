@@ -35,7 +35,7 @@ const AddItem = () => {
         formData.append("image", imageFile);
       }
 
-      await axios.post("http://localhost:3001/api/menu/add", formData, {
+      await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/menu/add", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

@@ -20,7 +20,7 @@ function SignUp() {
       return;
     }
     try{
-        const res = await axios.post("http://localhost:3001/api/signup",{
+        const res = await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/signup",{
             name,
             email,
             password

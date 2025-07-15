@@ -27,7 +27,7 @@ function CreateAdmin() {
       return;
     }
     try{
-        const res = await axios.post("http://localhost:3001/api/createadmin",{
+        const res = await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/createadmin",{
             name:formData.fullName,
             number:formData.mobile,
             password:formData.password

@@ -18,7 +18,7 @@ function AdminLogin() {
     const handleSubmit=async(e)=>{
         e.preventDefault();
         try{
-            const res = await axios.post("http://localhost:3001/api/adminlogin",{
+            const res = await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/adminlogin",{
                 number:formdata.number,
                 password:formdata.password
             });

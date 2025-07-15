@@ -22,7 +22,7 @@ const UpdateProfile = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:3001/api/user-info', {
+        const res = await axios.get('https://resturent-management-backend-xhsx.onrender.com/api/user-info', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(res.data.user);
@@ -67,7 +67,7 @@ const UpdateProfile = () => {
         formData.append('profileImage', selectedFile);
       }
 
-      await axios.put('http://localhost:3001/api/update-profile', formData, {
+      await axios.put('https://resturent-management-backend-xhsx.onrender.com/api/update-profile', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -93,7 +93,7 @@ const UpdateProfile = () => {
       <div className="profile-header">
         <div className="profile-image-container">
           <img
-            src={previewImage || `http://localhost:3001${user.profileImage}`}
+            src={previewImage || `https://resturent-management-backend-xhsx.onrender.com${user.profileImage}`}
             alt="Profile"
             className="profile-image"
           />

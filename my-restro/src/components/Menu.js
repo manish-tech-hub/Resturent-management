@@ -10,7 +10,7 @@ function Menu({ searchQuery}) {
   const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/api/menu?search=${searchQuery}`)
+    axios.get(`https://resturent-management-backend-xhsx.onrender.com/api/menu?search=${searchQuery}`)
       .then((res) => {
         setMenuItems(res.data);
       })

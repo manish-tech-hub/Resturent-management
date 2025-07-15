@@ -49,7 +49,7 @@ const Checkout = () => {
         setSummary({ subtotal, shipping, tax, total });
       }
     }
-  }, []);
+  }, [location.state]);
 
   const handleCheckoutChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +70,7 @@ const Checkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/api/order-detail", {
+      await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/order-detail", {
         customerInfo: checkoutDetail,
         payment: paymentDetail,
         orderItems: items,

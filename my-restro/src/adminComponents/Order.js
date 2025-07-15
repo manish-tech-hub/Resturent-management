@@ -20,7 +20,7 @@ const Order = () => {
     async function fetchOrders() {
       const token = sessionStorage.getItem("adminToken")
       try {
-        const { data } = await axios.get("http://localhost:3001/api/allorder",{headers:{Authorization:`Bearer ${token}`}});
+        const { data } = await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/allorder",{headers:{Authorization:`Bearer ${token}`}});
         setOrders(data);
       } catch (err) {
         console.error("Failed to fetch orders:", err);
@@ -31,7 +31,7 @@ const Order = () => {
   const handleDelete=async(id)=>{
     if(!window.confirm("Are you sure want to delete ?")) return
       try{
-        await axios.delete(`http://localhost:3001/api/del-order/${id}`) 
+        await axios.delete(`https://resturent-management-backend-xhsx.onrender.com/api/del-order/${id}`) 
         alert('order deleted succesfully')
         setOrders((preOreder)=>preOreder.filter(orders=>orders._id !==id))
       }catch(err){

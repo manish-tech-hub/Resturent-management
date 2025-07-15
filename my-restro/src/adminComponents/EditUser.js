@@ -1,4 +1,4 @@
-import React,{useState,useEffect, use} from "react";
+import React,{useState,useEffect} from "react";
 import { useParams } from "react-router-dom";
 import "./css/edituser.css"
 import axios from "axios";
@@ -18,7 +18,7 @@ function EditUser(){
     useEffect(()=>{
         const fetchData=async()=>{
             try{
-                const res =  await axios.get(`http://localhost:3001/api/user-info/${id}`)
+                const res =  await axios.get(`https://resturent-management-backend-xhsx.onrender.com/api/user-info/${id}`)
                 setUserInfo({
                     name:res.data.name,
                     mobile:res.data.mobile,
@@ -35,7 +35,7 @@ function EditUser(){
     const handleSubmit=async(e)=>{
         e.preventDefault()
         try{
-            await axios.put(`http://localhost:3001/api/update-user-info/${id}`,{
+            await axios.put(`https://resturent-management-backend-xhsx.onrender.com/api/update-user-info/${id}`,{
                 name:userInfo.name,
                 mobile:userInfo.mobile,
                 address:userInfo.address,

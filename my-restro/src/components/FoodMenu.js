@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import DirectOrderButton from "./HandleDirectOrder";
 import "./css/foodmenu.css";
-import slide4 from "./image/slide4.jpeg";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 
 function FoodMenu() {
   const [todayItems, setTodayItems]=useState([])
   useEffect (()=>{
-    axios.get("http://localhost:3001/api/menu/today-special")
+    axios.get("https://resturent-management-backend-xhsx.onrender.com/api/menu/today-special")
 
     .then(res =>{
       console.log(res.data)

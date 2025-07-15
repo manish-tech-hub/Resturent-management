@@ -13,7 +13,7 @@ const AdminMenu = () => {
   useEffect(() => {
     async function fetchMenu() {
       try {
-        const res = await axios.get("http://localhost:3001/api/menu-items");
+        const res = await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/menu-items");
         setMenuItems(res.data);
       } catch (err) {
         console.error("Failed to fetch menu:", err);
@@ -29,7 +29,7 @@ const AdminMenu = () => {
   const HandleDelete= async(id)=>{
     if (!window.confirm("Are you sure you want to delete this item?")) return;
     try{
-      await axios.delete(`http://localhost:3001/api/del-menu/${id}`)
+      await axios.delete(`https://resturent-management-backend-xhsx.onrender.com/api/del-menu/${id}`)
       alert("item deleted successfully")
       setMenuItems((prevItems) => prevItems.filter(item => item._id !== id));
     }catch(err){
@@ -83,7 +83,7 @@ const AdminMenu = () => {
                          src={item.image} 
                          alt={item.name} 
                          className="menu-item-image"
-                         onError={(e) => e.target.src = "/placeholder.png"} // fallback image if broken
+                        //  onError={(e) => e.target.src = "/placeholder.png"} // fallback image if broken
                     />
                 </td>
                 <td>{item.name}</td>

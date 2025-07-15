@@ -10,7 +10,7 @@ const ViewOrder = () => {
    const { sidebarOpen } = useOutletContext()
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/api/order/${id}`)
+    axios.get(`https://resturent-management-backend-xhsx.onrender.com/api/order/${id}`)
       .then((res) => setOrder(res.data))
       .catch((err) => console.error("Failed to fetch order:", err));
   }, [id]);

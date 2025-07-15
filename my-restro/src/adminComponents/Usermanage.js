@@ -11,7 +11,7 @@ const UserManagement = () => {
   useEffect(()=>{
     async function fetchUsers(){
       try{
-        const res = await axios.get("http://localhost:3001/api/allusers")
+        const res = await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/allusers")
         setUsers(res.data)
       }catch (err) {
         console.error("Failed to fetch orders:", err);
@@ -23,7 +23,7 @@ const UserManagement = () => {
   const handleDelete=async(id)=>{
     if(!window.confirm("Are you sure want to delete this user")) return
     try{
-      await axios.delete(`http://localhost:3001/api/del-user/${id}`)
+      await axios.delete(`https://resturent-management-backend-xhsx.onrender.com/api/del-user/${id}`)
       alert("user deleted sucessfully")
       setUsers((prevUser)=>prevUser.filter(users=>users._id !== id))
     }catch(err){
@@ -32,7 +32,7 @@ const UserManagement = () => {
   }
   const handleToggle = async (id) => {
   try {
-    const res = await axios.put(`http://localhost:3001/api/block-user/${id}`);
+    const res = await axios.put(`https://resturent-management-backend-xhsx.onrender.com/api/block-user/${id}`);
     alert(res.data.message);
 
     setUsers((prevUsers) =>

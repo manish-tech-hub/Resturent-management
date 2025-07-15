@@ -14,7 +14,7 @@ const Cart = () => {
     const fetchCartItems = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get("http://localhost:3001/api/cart-items", {
+        const res = await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/cart-items", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setCartItems(res.data.items || []);
@@ -45,7 +45,7 @@ const Cart = () => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.put("http://localhost:3001/api/update-cart", {
+      await axios.put("https://resturent-management-backend-xhsx.onrender.com/api/update-cart", {
         itemId, newQuantity
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -61,7 +61,7 @@ const Cart = () => {
   const removeItem = async (itemId) => {
     const token = localStorage.getItem("token");
     try {
-      await axios.delete("http://localhost:3001/api/remove-cart-item", {
+      await axios.delete("https://resturent-management-backend-xhsx.onrender.com/api/remove-cart-item", {
         headers: { Authorization: `Bearer ${token}` },
         data: { itemId }
       });

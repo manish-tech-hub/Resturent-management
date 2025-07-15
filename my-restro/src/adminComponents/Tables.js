@@ -13,7 +13,7 @@ const AdminTables = () => {
   useEffect(() => {
     async function fetchBookings() {
       try {
-        const res = await axios.get("http://localhost:3001/api/bookings");
+        const res = await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/bookings");
         setBookings(res.data);
       } catch (error) {
         console.error("Failed to fetch bookings", error);

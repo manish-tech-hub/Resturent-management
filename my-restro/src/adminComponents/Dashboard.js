@@ -29,7 +29,7 @@ const Dashboard = () => {
     const fetchData = async () => {
     try {
       const token = sessionStorage.getItem("adminToken");
-      const res = await axios.get("http://localhost:3001/api/dashboard", {
+      const res = await axios.get("https://resturent-management-backend-xhsx.onrender.com/api/dashboard", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setDashboardData(res.data);

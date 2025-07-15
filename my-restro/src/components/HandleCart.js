@@ -1,4 +1,3 @@
- import React from "react";
  import axios from "axios";
  // posting add to cart
     const HandleCart = async (item) => {
@@ -12,7 +11,7 @@
     };
 
     try {
-      const res = await axios.post("http://localhost:3001/api/add-to-cart", { item: cartItem }, {
+      const res = await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/add-to-cart", { item: cartItem }, {
       headers: { Authorization: `Bearer ${token}` }
     });
       alert(res.data.message);

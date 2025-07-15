@@ -1,14 +1,13 @@
-import {use, useEffect,useState} from "react";
+import {useEffect,useState} from "react";
 import { motion } from "framer-motion";
 import "./css/tablestyle.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import BookTable from "./BookTable";
 function Tables() {
   const [tables,settables]=useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:3001/api/tables')
+    axios.get('https://resturent-management-backend-xhsx.onrender.com/api/tables')
     .then(res =>{
       settables(res.data)
     })

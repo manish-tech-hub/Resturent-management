@@ -1,4 +1,4 @@
-import {useState,useEffect} from "react";
+import {useState} from "react";
 import { useParams } from 'react-router-dom';
 import "./css/booktable.css";
 import axios from "axios";
@@ -22,7 +22,7 @@ function BookTable() {
   const handleSubmit= async (e)=>{
     e.preventDefault()
     try{
-      await axios.post("http://localhost:3001/api/bookings", formData);
+      await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/bookings", formData);
       alert('table booked successfully')
     }catch(err){
       alert("booking failed")
