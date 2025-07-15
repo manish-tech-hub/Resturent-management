@@ -1,3 +1,5 @@
+require('dotenv').config(); // Load .env variables first
+console.log('MONGODB_URI:', process.env.MONGODB_URI); // Add this line to debug
 const express = require('express');
 const router = express.Router();
 const app = express();
@@ -35,7 +37,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 const MongoClient = require("mongodb").MongoClient;
 
-const url = 'mongodb://127.0.0.1:27017/';
+const url = process.env.MONGODB_URI;
+// const url = 'mongodb+srv://manish:ramsita@cluster0.2chdzeq.mongodb.net/resturent-db?retryWrites=true&w=majority&appName=Cluster0';
+
 const databasename = "resturent-db";
 const JWT_SECRET = "mySecretKey";
 let dbcon;
