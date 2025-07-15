@@ -688,7 +688,7 @@ router.post("/menu/add", upload.single("image"), async (req, res) => {
   const filename = req.file?.filename;
 
   // 2. Build full URL using your frontend-accessible image server URL
-  const imageUrl = `http://localhost:3001/images/${filename}`;
+  const imageUrl = `https://resturent-management-backend-xhsx.onrender.com/images/${filename}`;
 
   try {
     const menuColl = dbcon.collection("menuItem");
