@@ -69,23 +69,30 @@ function Menu({ searchQuery}) {
 
 
 function MenuCard({ item }) {
-     const [isFav, setIsFav] = useState(false);
-     const toggleFavorite = () => setIsFav(!isFav);
-    const handleFav =async()=>{
-      const token = localStorage.getItem("token");
-      const cartItem = {
-        itemId: item._id, 
-        name: item.name,
-        price: item.price,
-        image: item.image,
-        };
+  const [isFav, setIsFav] = useState(false);
 
-      await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/add-to-fav",{item:cartItem},
-        {headers:{Authorization:`Bearer ${token}`}}
-      )
-      .then(res=> alert(res.data.message))
-      .catch(err=> alert(err.response?.data?.error || "faild to add to favorite"))
+  const handleFav = async () => {
+    const token = localStorage.getItem("token");
+    const cartItem = {
+      itemId: item._id,
+      name: item.name,
+      price: item.price,
+      image: item.image,
     };
+
+    try {
+      const res = await axios.post(
+        "https://resturent-management-backend-xhsx.onrender.com/api/add-to-fav",
+        { item: cartItem },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      alert(res.data.message);
+      setIsFav(true); // Update heart icon on success
+    } catch (err) {
+      alert(err.response?.data?.error || "Failed to add to favorite");
+    }
+  };
 
   return (
     <div className="menu-card">
@@ -99,21 +106,17 @@ function MenuCard({ item }) {
       <p className="menu-category">{item.category}</p>
 
       <div className="menu-actions">
-        {/* Favorite Heart */}
-        <button onClick={()=>{toggleFavorite(); handleFav();}} className="fav-btn" aria-label="Toggle favorite">
+        <button onClick={handleFav} className="fav-btn" aria-label="Toggle favorite">
           {isFav ? <FaHeart color="red" /> : <FaRegHeart />}
         </button>
-
-          {/* Order Now Button */}
-        <DirectOrderButton item={item} className="order-btn1"> Order Now</DirectOrderButton>
-
-        {/* Cart Icon Button */}
-        <button className="cart-btn" type="button" aria-label="Add to cart" onClick={()=>HandleCart(item)}>
+        <DirectOrderButton item={item} className="order-btn1">Order Now</DirectOrderButton>
+        <button className="cart-btn" onClick={() => HandleCart(item)} aria-label="Add to cart">
           <FaShoppingCart />
         </button>
       </div>
     </div>
   );
 }
+
 
 export default Menu;

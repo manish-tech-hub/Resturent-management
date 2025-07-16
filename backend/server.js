@@ -9,7 +9,14 @@ const { ObjectId } = require("mongodb");
 
 const PORT = 3001;
 const cors = require('cors');
-app.use(cors());
+const corsOptions = {
+  origin: ["https://your-vercel-app.vercel.app", "http://localhost:3000"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 
 //for uploading image
 const multer = require('multer');
