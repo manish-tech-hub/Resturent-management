@@ -227,7 +227,7 @@ router.post("/add-to-fav", async (req, res) => {
         userfav.items.push(item);
         await favCollection.updateOne(
           { userEmail },
-          { $set: { items: userfav.items } }
+          { $push: { items: item } }
         );
       }
     } else {
