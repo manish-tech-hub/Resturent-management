@@ -9,13 +9,8 @@ const { ObjectId } = require("mongodb");
 
 const PORT = 3001;
 const cors = require('cors');
-const corsOptions = {
-  origin: ["https://your-vercel-app.vercel.app", "http://localhost:3000"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-};
-app.use(cors(corsOptions));
+
+app.use(cors());
 
 
 //for uploading image
@@ -214,6 +209,7 @@ router.post("/add-to-cart", async(req,res)=>{
 // Logic for adding favorite items
 router.post("/add-to-fav", async (req, res) => {
   const authHeader = req.headers.authorization
+  console.log("Authorization header:", authHeader);
    const token = authHeader?.split(" ")[1];
   const { item } = req.body;
 
