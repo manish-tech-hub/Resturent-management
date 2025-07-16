@@ -13,22 +13,25 @@ app.use(cors());
 
 //for uploading image
 const multer = require('multer');
-const path = require('path');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-// Configure multer storage
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'images/');
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'restaurant-menu',           
+    allowed_formats: ['jpg', 'png', 'jpeg'],
+    public_id: (req, file) => Date.now().toString(),
   },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    const filename = `${Date.now()}${ext}`;
-    cb(null, filename);
-  }
 });
 
 const upload = multer({ storage });
-app.use('/images', express.static('images'));
 ////////////////////////////////////////////////
 const bodyParser = require("body-parser");
 const { error } = require('console');
@@ -685,10 +688,8 @@ router.post("/menu/add", upload.single("image"), async (req, res) => {
   const { name, category, price, description } = req.body;
 
   // 1. Get file path
-  const filename = req.file?.filename;
-
-  // 2. Build full URL using your frontend-accessible image server URL
-  const imageUrl = `https://resturent-management-backend-xhsx.onrender.com/images/${filename}`;
+  const filename = req.file.path;
+   console.log("Saving image URL to DB:", imageUrl);
 
   try {
     const menuColl = dbcon.collection("menuItem");
