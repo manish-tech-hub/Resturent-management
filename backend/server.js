@@ -213,7 +213,8 @@ router.post("/add-to-cart", async(req,res)=>{
 
 // Logic for adding favorite items
 router.post("/add-to-fav", async (req, res) => {
-  const token = req.headers.authorization?.split(" ")[1];
+  const authHeader = req.headers.authorization
+   const token = authHeader?.split(" ")[1];
   const { item } = req.body;
 
   try {
