@@ -309,9 +309,9 @@ router.put("/update-profile", upload.single('profileImage'), async(req, res) => 
     const { address, phone } = req.body;
     let updateFields = { address, phone };
     if (req.file && req.file.path) {
-      updateFields.profileImage = req.file.path;
+      updateFields.profileImage = req.file?.path;
     }
-    
+
     const users = dbcon.collection("users");
     await users.updateOne({ email: userEmail }, { $set: updateFields });
     res.status(200).json({ message: "Profile updated" });
