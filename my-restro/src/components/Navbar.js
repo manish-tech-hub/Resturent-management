@@ -34,10 +34,10 @@ function Navbar({ setSearchQuery }) {
 
       {/* Icons & Search */}
       <div className="navbar-icons">
-        <form className="search-wrapper" onSubmit={handleSubmit}>
-          <button type='button' className="menu-toggle" onClick={toggleMenu}>
+        <button type='button' className="menu-toggle" onClick={toggleMenu}>
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
+        <form className="search-wrapper" onSubmit={handleSubmit}>
           <input
             type="text"
             id="search"
