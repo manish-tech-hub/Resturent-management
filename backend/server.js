@@ -360,7 +360,7 @@ router.get("/fav-items", async(req,res)=>{
         const decoded = jwt.verify(token,JWT_SECRET);
         const userEmail = decoded.email;
         const favItems = dbcon.collection("favorite")
-        const userFav = await favItems.findOne({userEmail});
+        const userFav = await favItems.findOne({userEmail:userEmail});
         if(!userFav) return res.status(404).json({items:[], message:"Favorite item not found"})
         res.status(200).json({items:userFav.items})
     } catch (err) {
