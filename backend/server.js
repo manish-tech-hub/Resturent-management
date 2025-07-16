@@ -688,7 +688,7 @@ router.post("/menu/add", upload.single("image"), async (req, res) => {
   const { name, category, price, description } = req.body;
 
   // 1. Get file path
-  const filename = req.file.path;
+  const filename = req.file?.path;
    console.log("Saving image URL to DB:", imageUrl);
 
   try {
