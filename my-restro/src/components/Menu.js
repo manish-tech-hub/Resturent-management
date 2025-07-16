@@ -80,7 +80,7 @@ function MenuCard({ item }) {
         image: item.image,
         };
 
-      await axios.post("http://localhost:3001/api/add-to-fav",{item:cartItem},
+      await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/add-to-fav",{item:cartItem},
         {headers:{Authorization:`Bearer ${token}`}}
       )
       .then(res=> alert(res.data.message))
