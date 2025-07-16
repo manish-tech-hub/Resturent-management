@@ -138,7 +138,7 @@ const Profile = () => {
               {favItem.map((item, index) => (
                 <div key={index} className="favorite-item">
                   <div className="item-image">
-                   <img src={item.image} alt={item.name} className="item-image" />
+                   <img src={item.image} alt="menu pic" className="item-image" />
                   </div>
                   <h3>{item.name}</h3>
                   <button className="add-to-cart" onClick={()=>HandleCart(item)}>Cart</button>
