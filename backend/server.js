@@ -310,7 +310,7 @@ router.put("/update-profile", upload.single('profileImage'), async(req, res) => 
     let updateFields = { address, phone };
     if (req.file) {
       // Save relative path to DB, e.g., '/images/filename.jpg'
-      updateFields.profileImage = `/images/${req.file.filename}`;
+      updateFields.profileImage = req.file.path;
     }
     const users = dbcon.collection("users");
     await users.updateOne({ email: userEmail }, { $set: updateFields });
@@ -643,7 +643,6 @@ router.get("/menu/:id",async(req,res)=>{
 router.put("/menu/edit/:id",upload.single("image"),async(req,res)=>{
   const itemId = req.params.id
   const {name,price,description,category}= req.body
-  const imagePath = req.file?.path
   const updateData = {
     name,
     category,
@@ -651,8 +650,8 @@ router.put("/menu/edit/:id",upload.single("image"),async(req,res)=>{
     description,
   };
 
-  if (imagePath) {
-    updateData.image = `http://localhost:3001/images/${imagePath}`;
+  if (req.file) {
+    updateData.image = req.file.path;
   }
 try {
     await dbcon.collection("menuItem").updateOne(
