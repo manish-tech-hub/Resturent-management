@@ -51,7 +51,7 @@ const Profile = () => {
       <div className="profile-header">
         <Logout/>
         <div className="profile-image-container">
-          <img src={`https://resturent-management-backend-xhsx.onrender.com${user.profileImage}`} alt="Profile" className="profile-image" />
+          <img src={user.profileImage} alt="Profile" className="profile-image" />
         </div>
         <div className="profile-info">
           <h1>{user.name}</h1>
