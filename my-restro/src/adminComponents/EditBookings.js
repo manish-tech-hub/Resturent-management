@@ -20,7 +20,7 @@ function EditBookings() {
   useEffect(()=>{
     const fetchData =async()=>{
         try{
-            const res = await axios.get(`http://localhost:3001/api/editbooking/${id}`)
+            const res = await axios.get(`https://resturent-management-backend-xhsx.onrender.com/api/editbooking/${id}`)
             setformData(res.data)
         }catch (err) {
       console.error("Failed to fetch booking", err);

@@ -29,7 +29,7 @@ const AdminTables = () => {
   const handleDelete= async(id)=>{
     if (!window.confirm("Are you sure you want to delete this booking?")) return;
     try{
-      await axios.delete(`http://localhost:3001/api/del-booking/${id}`)
+      await axios.delete(`https://resturent-management-backend-xhsx.onrender.com/api/del-booking/${id}`)
       alert("booking deleted successfully")
       setBookings((previousBooking)=>previousBooking.filter(booking=> booking._id !==id))
     }catch(err){

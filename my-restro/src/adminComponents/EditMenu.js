@@ -20,7 +20,7 @@ const EditItem = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/api/menu/${id}`);
+        const res = await axios.get(`https://resturent-management-backend-xhsx.onrender.com/api/menu/${id}`);
         const { name, category, price, description, image } = res.data;
         setForm({ name, category, price, description });
         setExistingImage(image); // store current image
