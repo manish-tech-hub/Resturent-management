@@ -687,9 +687,12 @@ router.delete("/del-menu/:id",async(req,res)=>{
 router.post("/menu/add", upload.single("image"), async (req, res) => {
   const { name, category, price, description } = req.body;
 
-  // 1. Get file path
-  const filename = req.file?.path;
-   console.log("Saving image URL to DB:", imageUrl);
+ const imageUrl = req.file?.path || req.file?.url; // safer to check both
+
+    if (!imageUrl) {
+      return res.status(400).json({ error: "Image upload failed or missing" });
+    }
+    console.log("Saving image URL to DB:", imageUrl);
 
   try {
     const menuColl = dbcon.collection("menuItem");
