@@ -111,7 +111,7 @@ const Profile = () => {
             {orderHistory.map(order => (
               <div key={order._id} className="order-card">
                 <div className="order-header">
-                  <span className="order-id">Order #{order._id}</span>
+                  <span className="order-id">Order #{order._id.slice(0,6)}....</span>
                   <span className={`order-status ${order.status ? order.status.toLowerCase().replace(' ', '-') : ''}`}>
                     {order.status }
                   </span>
