@@ -60,6 +60,7 @@ const AnimateRoutes = ({ searchQuery, setSearchQuery }) => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Slider />} />
         <Route path="/login" element={<Login />} />
         <Route path="/singup" element={<SignUp />} />
