@@ -1,11 +1,12 @@
 .admin-menu-container {
-  padding: 5rem 2rem 2rem 2rem; 
+  padding: 5rem 2rem 2rem 2rem;
   background: #f8f9fc;
   min-height: calc(100vh - 70px);
   box-sizing: border-box;
   transition: margin-left 0.3s ease;
 }
 
+/* Desktop view: sidebar takes space */
 .admin-menu-container.with-sidebar {
   margin-left: 250px;
 }
@@ -40,10 +41,12 @@
   transition: background-color 0.3s ease;
   text-decoration: none;
 }
+
 a {
   text-decoration: none;
-  color: inherit; /* ensures button color doesn't inherit link blue */
+  color: inherit;
 }
+
 .add-btn:hover {
   background-color: #17a673;
 }
@@ -65,7 +68,7 @@ a {
 
 .menu-search {
   width: 100%;
-  padding: 0.5rem 2.5rem 0.5rem 1rem; /* padding-right for icon */
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
   border: 1.5px solid #d1d3e2;
   border-radius: 6px;
   font-size: 1rem;
@@ -157,6 +160,7 @@ a {
   color: #858796;
   font-style: italic;
 }
+
 .menu-item-image {
   width: 50px;
   height: 50px;
@@ -164,16 +168,39 @@ a {
   border-radius: 6px;
 }
 
-
-/* Responsive */
+/* Sidebar Responsive */
 @media (max-width: 768px) {
-  .menu-search {
+  .admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    height: 100%;
+    width: 220px; 
+    z-index: 1050; 
+    background-color: #1e293b; 
+    transition: left 0.3s ease;
+  }
+
+  .admin-sidebar.open {
+    left: 0;
+  }
+
+  .admin-menu-container {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    position: relative;
+    z-index: 1; 
+  }
+
+  .admin-sidebar + .admin-menu-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .search-container {
+    position: relative;
     width: 200px;
-  }
-  .menu-table {
-    min-width: 400px;
-  }
-  .actions-cell {
-    justify-content: flex-start;
+    z-index: 1; 
   }
 }

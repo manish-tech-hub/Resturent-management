@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import "./css/order.css";
-import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
+import { FaEye, FaEdit, FaTrash,FaSearch } from "react-icons/fa";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -44,11 +44,14 @@ const Order = () => {
       <h2>Orders Management</h2>
 
       <div className="orders-actions">
+        <div className="search-input-wrapper">
         <input
           type="text"
           placeholder="Search orders by ID, customer, status..."
           className="orders-search"
         />
+        <span className="search-order-icon"><FaSearch /></span>
+        </div>
       </div>
 
       <div className="orders-table-wrapper">

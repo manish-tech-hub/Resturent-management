@@ -50,10 +50,9 @@ const Dashboard = () => {
   return (
     <div className="admin-dashboard-container">
       <Topbar toggleSidebar={toggleSidebar} />
-
       <div className="admin-main-content">
         <div className={`sidebar-container ${sidebarOpen ? 'open' : ''}`}>
-          {sidebarOpen && <Sidebar />}
+          <Sidebar />
         </div>
 
         <div className={`dashboard-content ${sidebarOpen ? 'with-sidebar' : 'full-width'}`}>

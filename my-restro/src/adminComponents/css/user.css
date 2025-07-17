@@ -15,7 +15,7 @@
   color: #4e73df;
   font-weight: 700;
   font-size: 1.75rem;
-  padding-top: 15px;
+  padding-top: 3rem;
 }
 
 .users-actions {
@@ -162,8 +162,15 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .admin-users-container{
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+  }
   .users-search-container {
-    width: 100%;
+    width: 200px
+    
   }
   
   .users-actions {

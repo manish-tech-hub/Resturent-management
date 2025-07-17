@@ -1,4 +1,4 @@
-/* dashboard.css */
+/* ====== Container Setup ====== */
 .admin-dashboard-container {
   display: flex;
   flex-direction: column;
@@ -11,20 +11,23 @@
   display: flex;
   flex: 1;
   margin-top: 60px;
+  position: relative;
   overflow: hidden;
 }
 
+/* ====== Sidebar ====== */
 .sidebar-container {
-  width: 250px;
+  width: 225px;
   background-color: #fff;
   color: #5a5c69;
-  height: calc(100vh - 60px);
+  height:100vh;
   position: fixed;
-  top: 60px;
+  top: 0px;
+  bottom: 0px;
   left: 0;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
-  z-index: 999;
+  z-index: 1000;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -32,6 +35,7 @@
   transform: translateX(0);
 }
 
+/* ====== Content ====== */
 .dashboard-content {
   flex: 1;
   overflow-y: auto;
@@ -39,6 +43,8 @@
   margin-left: 0;
   transition: all 0.3s ease;
   background-color: #f8f9fc;
+  z-index: 1;
+  width: 100%;
 }
 
 .dashboard-content.with-sidebar {
@@ -57,6 +63,7 @@
   margin-bottom: 2rem;
 }
 
+/* ====== Cards ====== */
 .dashboard-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -94,44 +101,7 @@
   flex: 1;
 }
 
-@media (max-width: 992px) {
-  .sidebar-container {
-    width: 100vw;
-    max-width: 250px;
-    transform: translateX(-100%);
-  }
-
-  .sidebar-container.open {
-    transform: translateX(0);
-  }
-
-  .dashboard-content.with-sidebar {
-    margin-left: 0 !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .content-wrapper {
-    padding: 1.5rem;
-  }
-
-  .dashboard-cards {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .dashboard-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    padding: 1.25rem;
-  }
-}
-
-/* Fix topbar to top */
+/* ====== Topbar ====== */
 .admin-topbar {
   position: fixed;
   top: 0;
@@ -144,10 +114,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5rem;
-  z-index: 1000;
+  z-index: 1100;
 }
 
-/* Charts Container Fix */
+/* ====== Chart Area ====== */
 .charts-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -155,10 +125,34 @@
   width: 100%;
 }
 
-.chart-card {
+.chart-card, .chart-wrapper {
   width: 100%;
 }
 
-.chart-wrapper {
-  width: 100%;
+/* ====== Only Mobile View (≤768px) ====== */
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 225px;
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0px;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .dashboard-content {
+    margin-left: 0 !important;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .content-wrapper {
+    padding: 1.5rem;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
 }

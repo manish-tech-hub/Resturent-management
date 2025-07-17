@@ -1,41 +1,46 @@
-/* Orders Page Container */
+/* Container for the orders page */
 .admin-orders-container {
   padding: 2rem;
   background: #f8f9fc;
   box-sizing: border-box;
-  
 }
 
-/* Desktop with sidebar */
+/* Applies margin if sidebar is open (desktop) */
 .admin-orders-container.with-sidebar {
   margin-left: 250px;
   min-height: calc(100dvh - 70px);
 }
 
-/* Page Header */
+/* Page Title */
 .admin-orders-container h2 {
   margin-bottom: 0.5rem;
   color: #4e73df;
   font-weight: 700;
   font-size: clamp(1.5rem, 2vw, 1.75rem);
   padding-top: 15px;
+  text-align: left;
 }
 
-/* Action Bar */
+/* Search + Action Wrapper */
 .orders-actions {
   margin-bottom: 1.5rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-/* Search Input */
-.orders-search {
+/* Search Wrapper for positioning icon */
+.search-input-wrapper {
+  position: relative;
   width: 100%;
   max-width: 300px;
-  padding: 0.5rem 1rem;
+}
+
+/* Search Input Field */
+.orders-search {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem; /* right padding for icon */
   border: 1.5px solid #d1d3e2;
   border-radius: 6px;
   font-size: 1rem;
@@ -48,7 +53,18 @@
   box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.15);
 }
 
-/* Table Wrapper */
+/* Search Icon Positioned in Right Side */
+.search-order-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+/* Table Scroll Wrapper */
 .orders-table-wrapper {
   overflow-x: auto;
   box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
@@ -58,13 +74,14 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* Table Styles */
+/* Table Base Styling */
 .orders-table {
   width: 100%;
   border-collapse: collapse;
   min-width: 700px;
 }
 
+/* Table Header */
 .orders-table thead {
   background-color: #4e73df;
   color: white;
@@ -72,6 +89,7 @@
   top: 0;
 }
 
+/* Table Cells */
 .orders-table th,
 .orders-table td {
   padding: 0.75rem 1rem;
@@ -80,12 +98,13 @@
   font-size: 0.95rem;
 }
 
+/* Header Cell Styling */
 .orders-table th {
   font-weight: 600;
   white-space: nowrap;
 }
 
-/* Status Badges */
+/* Status Badge Styling */
 .status-badge {
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
@@ -97,7 +116,7 @@
   font-size: 0.85rem;
 }
 
-/* Action Buttons - Updated for mobile */
+/* Action Button Container */
 .actions-cell {
   display: flex;
   justify-content: center;
@@ -106,6 +125,7 @@
   padding: 0.5rem;
 }
 
+/* Individual Action Buttons */
 .action-btn {
   border: none;
   background: none;
@@ -122,7 +142,6 @@
 .action-btn.view {
   color: #4e73df;
 }
-
 .action-btn.view:hover {
   background-color: #dbe5fb;
 }
@@ -130,7 +149,6 @@
 .action-btn.edit {
   color: #1cc88a;
 }
-
 .action-btn.edit:hover {
   background-color: #d1f0e7;
 }
@@ -138,12 +156,11 @@
 .action-btn.delete {
   color: #e74a3b;
 }
-
 .action-btn.delete:hover {
   background-color: #fbdada;
 }
 
-/* Empty State */
+/* No Orders Message */
 .no-orders {
   text-align: center;
   padding: 2rem;
@@ -152,38 +169,43 @@
 }
 
 /* ========== Mobile Responsive Styles ========== */
-
 @media (max-width: 768px) {
   .admin-orders-container {
-    padding: 1.5rem 1rem;
-    min-height: auto;
+    margin-left: 0 !important;
+    padding: 1rem !important;
+  }
+
+  .admin-orders-container h2 {
+    padding-top: 2rem;
+    font-size: 1.5rem;
   }
 
   .orders-actions {
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+  }
+  .admin-orders-container h2{
+    padding-top: 3rem;
   }
 
   .orders-search {
-    max-width: 100%;
+    max-width: 200px;
+  }
+  .search-order-icon{
+    padding-right: 98px;
   }
 
   .orders-table-wrapper {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    width: calc(100% + 2rem);
+    width: 100%;
     border-radius: 0;
     box-shadow: none;
   }
 
-  /* Optimized action buttons for mobile */
   .actions-cell {
     justify-content: flex-start;
-    gap: 0.5rem;
     overflow-x: auto;
     padding: 0.5rem 0;
-    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem;
   }
 
   .action-btn {
