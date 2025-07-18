@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import slide1 from "./image/slide1.jpeg";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './css/cart.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  const navigate=useNavigate()
-  // Fetch cart items on mount
+  const [updateTimeouts, setUpdateTimeouts] = useState({});
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchCartItems = async () => {
       const token = localStorage.getItem("token");
@@ -30,35 +30,50 @@ const Cart = () => {
   const tax = subtotal * 0.08;
   const total = subtotal + shipping + tax;
 
-  const orderSummary ={
+  const orderSummary = {
     subtotal,
     shipping,
     tax,
     total
-  }
-  const handleCheckout=()=>{
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    navigate("/checkout",{state:orderSummary})
-  }
-  const updateQuantity = async (itemId, newQuantity) => {
-    if (newQuantity < 1) return;
-    const token = localStorage.getItem("token");
-
-    try {
-      await axios.put("https://resturent-management-backend-xhsx.onrender.com/api/update-cart", {
-        itemId, newQuantity
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setCartItems(prev =>
-        prev.map(item => item.itemId === itemId ? { ...item, quantity: newQuantity } : item)
-      );
-    } catch (err) {
-      console.error("Failed to update cart:", err);
-    }
   };
 
-  const removeItem = async (itemId) => {
+  const handleCheckout = () => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    navigate("/checkout", { state: orderSummary });
+  };
+
+  const updateQuantity = useCallback((itemId, newQuantity) => {
+    if (newQuantity < 1) return;
+
+    // Optimistically update UI immediately
+    setCartItems(prev =>
+      prev.map(item => (item.itemId === itemId ? { ...item, quantity: newQuantity } : item))
+    );
+
+    // Clear any existing timeout for this item
+    if (updateTimeouts[itemId]) {
+      clearTimeout(updateTimeouts[itemId]);
+    }
+
+    // Set a new timeout to debounce API call
+    const timeout = setTimeout(async () => {
+      const token = localStorage.getItem("token");
+      try {
+        await axios.put(
+          "https://resturent-management-backend-xhsx.onrender.com/api/update-cart",
+          { itemId, newQuantity },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      } catch (err) {
+        console.error("Failed to update cart:", err);
+        // Optional: revert quantity or notify user here
+      }
+    }, 500);
+
+    setUpdateTimeouts(prev => ({ ...prev, [itemId]: timeout }));
+  }, [updateTimeouts]);
+
+  const removeItem = useCallback(async (itemId) => {
     const token = localStorage.getItem("token");
     try {
       await axios.delete("https://resturent-management-backend-xhsx.onrender.com/api/remove-cart-item", {
@@ -69,15 +84,15 @@ const Cart = () => {
     } catch (err) {
       console.error("Failed to remove item:", err);
     }
-  };
+  }, []);
 
   return (
     <motion.div className="cart-container"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -30 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}>
-
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+    >
       <div className="cart-header">
         <Link to="/home"><button className="continue-shopping">← Continue Shopping</button></Link>
         <h1 className="cart-title">
@@ -101,7 +116,12 @@ const Cart = () => {
               {cartItems.map((item) => (
                 <li key={item.itemId} className="cart-item">
                   <div className="item-product">
-                    <img src={item.image || slide1} alt={item.name} className="item-image" />
+                    <img
+                      src={item.image || slide1}
+                      alt={item.name}
+                      className="item-image"
+                      loading="lazy"
+                    />
                     <div>
                       <h3>{item.name}</h3>
                       {!item.inStock && <span className="out-of-stock">Out of Stock</span>}

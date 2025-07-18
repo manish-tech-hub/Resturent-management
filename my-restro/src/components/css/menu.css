@@ -6,21 +6,20 @@
 
 .menu-title {
   font-size: 32px;
-  color:#B86AA7;
+  color: #B86AA7;
   margin-bottom: 15px;
-  font-family: monospace cursive;
+  font-family: cursive, monospace;
   font-style: oblique;
 }
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  max-width: 1200px; 
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
-
 
 .menu-card {
   background: #ffffff;
@@ -29,8 +28,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: relative;
   transition: transform 0.3s ease;
-  
-  
+  will-change: transform;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
 }
 
 .menu-image {
@@ -40,11 +42,7 @@
   border-radius: 50%;
   margin: 0 auto 12px;
   display: block;
-  border: 3px solid #ff7e5f;
-}
-
-.menu-card:hover {
-  transform: translateY(-5px);
+  border: 3px solid #ff9800;
 }
 
 .menu-desc {
@@ -76,12 +74,14 @@
   margin-top: 8px;
   text-transform: uppercase;
 }
-.empty-data{
+
+.empty-data {
   color: red;
-  font-family: monospace cursive;
+  font-family: cursive, monospace;
   font-style: oblique;
   font-size: 28px;
 }
+
 .menu-actions {
   display: flex;
   justify-content: space-between;
@@ -90,7 +90,6 @@
   gap: 10px;
 }
 
-/* Make all buttons consistent height */
 .menu-actions button {
   height: 40px;
   border: none;
@@ -100,32 +99,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  will-change: transform;
+}
+
+.menu-actions button:focus {
+  outline: 2px solid #ff7e5f;
+  outline-offset: 2px;
 }
 
 /* Heart (fav) button - icon only */
 .fav-btn {
   width: 40px;
-  background-color: #e0f7fa;;
+  background-color: #e0f7fa;
   color: red;
   font-size: 25px;
-  transition: transform 0.3 ease;
+  transition: transform 0.3s ease;
 }
-.fav-btn:hover{
+
+.fav-btn:hover {
   transform: translateY(-5px);
-  
 }
+
 /* Order Now - main CTA */
 .order-btn1 {
   flex: 1;
-  background-color: #ff7e5f;
+  background-color: #ff9800;
   color: white;
   font-weight: bold;
-  transition: transform 0.7 ease;
+  transition: transform 0.7s ease;
 }
-.order-btn1:hover{
-  transform: translateY(-5px);
-  background-color: #e65100;
 
+.order-btn1:hover {
+  transform: translateY(-5px);
+  background-color: #e68900;
 }
 
 /* Cart icon button */
@@ -134,17 +140,18 @@
   background-color: #e0f7fa;
   color: #00796b;
   font-size: 18px;
-  transition: transform 0.3 ease;
+  transition: transform 0.3s ease;
 }
-.cart-btn:hover{
+
+.cart-btn:hover {
   transform: translateY(-5px);
   color: green;
 }
 
-
 @media (max-width: 768px) {
-  h3{
-    padding-left: 0px;
-    margin-left: -120px;
+  h3 {
+    /* Removed negative margin for better layout on small screens */
+    padding-left: 0;
+    margin-left: 0;
   }
 }

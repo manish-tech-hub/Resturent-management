@@ -129,11 +129,11 @@
 }
 
 .book-button.available {
-  background: #B86AA7;
+  background:#ff9800;
   color: white;
 }
 .book-button.available:hover{
-    background-color: #ffcdd2;
+    background-color: #e68900;
 
 }
 

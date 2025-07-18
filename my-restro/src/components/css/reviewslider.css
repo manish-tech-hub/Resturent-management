@@ -1,6 +1,6 @@
 /* Container for slider - center aligned */
 .review-slider-container {
-  max-width: 100%;
+  width: 100%;
   padding: 40px 20px;
   background-color: #fff5ec;
   border-radius: 25px;
@@ -17,9 +17,8 @@
 /* Each card style */
 .review-card {
   background:#fff5ec;
-  border-radius: 60px;
+  border-radius: 40px;
   padding: 20px 15px;
-  margin: 10px;
   text-align: center;
   transition: transform 0.4s ease;
   height: 100%;
@@ -32,17 +31,18 @@
 
 /* Highlight active slide */
 .slick-center .review-card {
-  transform: scale(1.1);
+  transform: scale(0.8);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
   z-index: 2;
   background: #B86AA7;
+  
 }
 
 /* Avatar image */
 .review-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius:100px;
   object-fit: cover;
   margin: 0 auto 18px;
   border: 4px solid #68d391;
@@ -107,19 +107,19 @@
 /* Tablets */
 @media (max-width: 768px) {
   .review-slider-container {
-    padding: 30px 15px;
+    padding: 30px 5px;
   }
   #rw{
-    margin-left: 17%;
+    margin-left: 12%;
   }
 
   .review-card {
-    padding: 20px 15px;
+    padding: 20px 8%.;
   }
 
   .review-avatar {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
   }
 
   .review-text {

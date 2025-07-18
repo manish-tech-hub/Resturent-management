@@ -4,13 +4,39 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./css/reviewslider.css"
 
-import slide4 from "./image/slide4.jpeg";
+import customer1 from "./image/c1.jpg";
+import customer2 from "./image/c2.jpg";
+import customer3 from "./image/c3.jpg";
 
 const reviews = [
-  { id: 1, name: "Manish Pasman", role: "Customer", review: "Great restaurant", image: slide4 },
-  { id: 2, name: "Alice", role: "Customer", review: "Nice food!", image: slide4 },
-  { id: 3, name: "Bob", role: "Customer", review: "Awesome service", image: slide4 },
-  { id: 4, name: "Jane", role: "Customer", review: "Loved it", image: slide4 },
+  {
+    id: 1,
+    name: "Manish Pasman",
+    role: "Customer",
+    review: "Absolutely loved the food and the ambiance. The staff was friendly and service was quick!",
+    image: customer1,
+  },
+  {
+    id: 2,
+    name: "Alicy",
+    role: "Customer",
+    review: "Delicious meals with fresh ingredients. I’ll definitely be coming back again!",
+    image: customer2,
+  },
+{
+    id: 3,
+    name: "Bob",
+    role: "Customer",
+    review: "Exceptional service and a cozy atmosphere. The dishes were flavorful and well presented.",
+    image: customer1,
+  },
+  {
+    id: 4,
+    name: "Jane",
+    role: "Customer",
+    review: "A hidden gem! Everything from starters to dessert was top-notch. Highly recommend!",
+    image: customer3,
+  }
 ];
 
 const Review = () => {
@@ -36,7 +62,7 @@ const Review = () => {
           <img className="review-avatar" src={review.image} alt={review.name} />
           <p className="review-text">{review.review}</p>
           <h4 className="review-name">{review.name}</h4>
-          <p className="review-role">{review.role}</p>
+          
         </div>
       ))}
     </Slider>

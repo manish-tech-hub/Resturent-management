@@ -22,7 +22,7 @@ function Navbar({ setSearchQuery }) {
 
   return (
     <nav className="navbar">
-      <Link to="/home" className="navbar-logo">MyRestro</Link>
+      <Link to="/home" className="navbar-logo">Yummy-Restro</Link>
 
       {/* Links */}
       <ul className={`navbar-links ${menuOpen ? "active" : ""}`}>

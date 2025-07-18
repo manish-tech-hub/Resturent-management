@@ -21,6 +21,7 @@
   color: var(--text-color);
   background-color: var(--background);
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .checkout-container h1 {
@@ -152,6 +153,8 @@
   height: fit-content;
   position: sticky;
   top: 2rem;
+  height: 136vh;
+  overflow: auto;
 }
 
 .order-summary h2 {
@@ -205,6 +208,7 @@
   margin-bottom: 1.25rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--border-color);
+  
 }
 
 .cart-item-check img {
@@ -296,4 +300,5 @@
 
 .order-summary {
   animation-delay: 0.1s;
+  
 }
