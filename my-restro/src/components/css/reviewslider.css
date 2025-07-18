@@ -109,7 +109,9 @@
   .review-slider-container {
     padding: 0px ;
   }
- 
+  #rw{
+    margin-left: 12%;
+  }
 
   .review-card {
     padding: 20px 9px;
