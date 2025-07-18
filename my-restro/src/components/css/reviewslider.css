@@ -107,14 +107,12 @@
 /* Tablets */
 @media (max-width: 768px) {
   .review-slider-container {
-    padding: 30px 5px;
+    padding: 0px ;
   }
-  #rw{
-    margin-left: 12%;
-  }
+ 
 
   .review-card {
-    padding: 20px 8%.;
+    padding: 20px 9px;
   }
 
   .review-avatar {
