@@ -148,10 +148,16 @@
   color: green;
 }
 
+
 @media (max-width: 768px) {
-  h3 {
-    /* Removed negative margin for better layout on small screens */
-    padding-left: 0;
-    margin-left: 0;
+  .menu-card h3 {
+    text-align: center !important;
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+    background-color: transparent; /* optional: help see bounds */
   }
 }
+
+
+

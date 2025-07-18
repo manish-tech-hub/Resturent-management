@@ -251,8 +251,9 @@
     width: 100%;
     margin: 0;
   }
-  h3{
-    padding-left: 110px !important;
+  .cart-content h3{
+    padding-left: 70px;
+ 
   }
   .item-image{
     width: 240px !important;
@@ -268,6 +269,7 @@
     content: "Price: ";
     font-weight: 500;
     color: #777;
+    
   
   }
 
