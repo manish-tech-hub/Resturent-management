@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import './css/login.css';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
-import slide1 from './image/slide1.jpeg'; 
+import slide1 from './image/slide1.jpg'; 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 

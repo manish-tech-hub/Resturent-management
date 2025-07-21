@@ -6,7 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { motion } from "framer-motion";
 import FadeInSection from "./FadeIn";
-import slide1 from "./image/slide1.jpeg";
+import slide1 from "./image/slide1.jpg";
 import slide2 from "./image/slide2.jpeg";
 import slide3 from "./image/slide3.jpeg";
 import slide4 from "./image/slide4.jpeg";

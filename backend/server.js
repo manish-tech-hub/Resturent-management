@@ -371,17 +371,20 @@ router.get("/fav-items", async(req,res)=>{
     res.status(500).json({ error: err.message });
      }
 });
-///order information storing on database
 router.post("/order-detail", async (req, res) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ error: "Unauthorized" });
+
   const token = authHeader.split(" ")[1];
   const { customerInfo, payment, orderItems, summary } = req.body;
+
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
     const userEmail = decoded.email;
+
     const orderCollection = dbcon.collection("order");
     const cartCollection = dbcon.collection("carts");
+
     const newOrder = {
       email: userEmail,
       customerInfo,
@@ -391,9 +394,23 @@ router.post("/order-detail", async (req, res) => {
       createdAt: new Date(),
       status: "pending"
     };
+
+    console.log("Decoded email:", userEmail);
+    console.log("Request body:", req.body);
+
     const result = await orderCollection.insertOne(newOrder);
-    // ✅ Corrected field name from `email` to `userEmail`
-    await cartCollection.deleteOne({ userEmail: userEmail });
+    console.log("Order inserted with ID:", result.insertedId);
+
+    // Check for existing cart before deleting
+    const existingCart = await cartCollection.findOne({ userEmail });
+    console.log("Existing cart found:", existingCart);
+    if (existingCart) {
+      await cartCollection.deleteOne({ userEmail });
+      console.log("Cart deleted for user:", userEmail);
+    } else {
+      console.log("No cart to delete for user:", userEmail);
+    }
+
     res.status(201).json({
       message: "Order placed successfully",
       orderId: result.insertedId
@@ -403,6 +420,7 @@ router.post("/order-detail", async (req, res) => {
     res.status(500).json({ error: "Failed to place order" });
   }
 });
+
 ///logic for order history
 router.get("/order-history", async(req,res)=>{
   const token = req.headers.authorization.split(" ")[1];

@@ -70,12 +70,13 @@ const Checkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/order-detail", {
+      await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/order-detail", 
+        console.log("Submitting order payload:",{
         customerInfo: checkoutDetail,
         payment: paymentDetail,
         orderItems: items,
         summary
-      }, {
+      }), {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }

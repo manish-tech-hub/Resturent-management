@@ -5,8 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./css/reviewslider.css"
 
 import customer1 from "./image/c1.jpg";
-import customer2 from "./image/c2.jpg";
-import customer3 from "./image/c3.jpg";
+import customer2 from "./image/c2 .jpg";
+import customer3 from "./image/c3 .jpg";
 
 const reviews = [
   {

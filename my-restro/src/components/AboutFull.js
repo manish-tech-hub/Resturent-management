@@ -1,10 +1,10 @@
 import React from "react";
 import AboutUs from "./AboutUs";
 import { motion } from "framer-motion";
-import cto from "./image/cto.jpg"
-import hr from "./image/HR.jpg"
-import ceo from "./image/CEO.jpg"
-import manager from "./image/manager.jpg"
+import cto from "./image/cto .jpg"
+import hr from "./image/HR .jpg"
+import ceo from "./image/CEO .jpg"
+import manager from "./image/manager .jpg"
 import "./css/aboutus.css";
 function AboutFull(){
 const staffs = [

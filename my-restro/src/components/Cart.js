@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import slide1 from "./image/slide1.jpeg";
+import slide1 from "./image/slide1.jpg";
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './css/cart.css';

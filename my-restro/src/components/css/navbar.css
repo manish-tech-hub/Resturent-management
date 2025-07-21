@@ -59,7 +59,7 @@
 #search {
   width: 100%;
   height: 40px;
-  padding: 0 40px 0 10px;
+  padding: 0 40px 0 0px;
   font-size: 14px;
   border: 3px solid white;
   border-radius: 16px;
@@ -75,11 +75,11 @@
 
 .submit-btn {
   position: absolute;
-  right: 3px;
+  right: 4px;
   top: 6px;
-  background-color: lightgray;
+  background-color:lightgray;
   border: none;
-  width: 25px;
+  width: 35px;
   height: 25px;
   border-radius: 50%;
   cursor: pointer;
@@ -88,6 +88,7 @@
 .search-icon {
   color: white;
   font-size: 1.5rem !important;
+  padding-left: 6px !important;
 }
 
 .submit-btn:hover .search-icon {

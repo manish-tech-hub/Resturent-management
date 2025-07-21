@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import './css/alogin.css';
 import { motion } from "framer-motion";
-import slide1 from './image/slide1.jpeg'; 
+import slide1 from './image/slide1.jpg'; 
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 

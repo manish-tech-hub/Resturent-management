@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/aboutus.css";
-import resturent from "./image/resturentImg.jpg"; // restaurant image
+import resturent from "./image/resturentImg .jpg"; // restaurant image
 // import chefImage from "./image/chef.jpg"; // add real staff images
 
 function AboutUs() {
