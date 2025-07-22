@@ -66,29 +66,47 @@ const Checkout = () => {
       [name]: value
     }));
   };
+  const payload = {
+  customerInfo: checkoutDetail,
+  payment: paymentDetail,
+  orderItems: items,
+  summary
+};
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/order-detail", 
-        console.log("Submitting order payload:",{
-        customerInfo: checkoutDetail,
-        payment: paymentDetail,
-        orderItems: items,
-        summary
-      }), {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`
-        }
-      });
+console.log("Submitting order payload:", payload);
 
-      alert("Order placed successfully");
-      localStorage.removeItem("cartItems");
-      navigate("/home");
-    } catch (err) {
-      alert(err.response?.data?.error || 'Failed to place order');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const headers = {
+      "Content-Type": "application/json"
+    };
+
+    let token = localStorage.getItem("token");
+    if (!token || token.trim() === "") {
+      localStorage.removeItem("token");
+      token = null;
     }
-  };
+    console.log("Token used for Authorization header:", token);
+
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+
+    await axios.post("https://resturent-management-backend-xhsx.onrender.com/api/order-detail", payload, { headers });
+
+    alert("Order placed successfully");
+
+    if (token) localStorage.removeItem("cartItems");
+
+    navigate("/home");
+
+  } catch (err) {
+    console.error(err);
+    alert(err.response?.data?.error || "Order failed");
+  }
+};
 
   return (
     <div className="checkout-container">

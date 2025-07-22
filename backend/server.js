@@ -373,56 +373,60 @@ router.get("/fav-items", async(req,res)=>{
 });
 router.post("/order-detail", async (req, res) => {
   const authHeader = req.headers.authorization;
-  if (!authHeader) return res.status(401).json({ error: "Unauthorized" });
+  let userEmail = null;
 
-  const token = authHeader.split(" ")[1];
+  if (authHeader && authHeader.startsWith("Bearer ")) {
+    const token = authHeader.split(" ")[1];
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET);
+      userEmail = decoded.email;
+    } catch (err) {
+        console.error("JWT verify error:", err);
+      return res.status(401).json({ error: "Invalid or expired token" });
+    }
+  }
+
   const { customerInfo, payment, orderItems, summary } = req.body;
 
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    const userEmail = decoded.email;
+  if (!customerInfo || !payment || !orderItems || !summary) {
+    return res.status(400).json({ error: "Missing order details" });
+  }
 
+  try {
     const orderCollection = dbcon.collection("order");
     const cartCollection = dbcon.collection("carts");
 
     const newOrder = {
-      email: userEmail,
+      email: userEmail || customerInfo.email,
       customerInfo,
       payment,
       orderItems,
       summary,
       createdAt: new Date(),
-      status: "pending"
+      status: "pending",
+      isGuest: !userEmail
     };
 
-    console.log("Decoded email:", userEmail);
-    console.log("Request body:", req.body);
-
     const result = await orderCollection.insertOne(newOrder);
-    console.log("Order inserted with ID:", result.insertedId);
 
-    // Check for existing cart before deleting
-    const existingCart = await cartCollection.findOne({ userEmail });
-    console.log("Existing cart found:", existingCart);
-    if (existingCart) {
+    if (userEmail) {
       await cartCollection.deleteOne({ userEmail });
-      console.log("Cart deleted for user:", userEmail);
-    } else {
-      console.log("No cart to delete for user:", userEmail);
     }
 
     res.status(201).json({
       message: "Order placed successfully",
       orderId: result.insertedId
     });
+
   } catch (err) {
-    console.error("Error placing order:", err);
+    console.error("Order save error:", err.message);
     res.status(500).json({ error: "Failed to place order" });
   }
 });
 
 ///logic for order history
 router.get("/order-history", async(req,res)=>{
+  console.log(req.headers.authorization)
   const token = req.headers.authorization.split(" ")[1];
   try{
     if(!token) return res.status(401).json({message:"Unauthorized"})
