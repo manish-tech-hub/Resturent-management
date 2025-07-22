@@ -1,8 +1,26 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ],
   "redirects": [
-    { "source": "/old-url", "destination": "/new-url", "permanent": true }
+    {
+      "source": "/old-url",
+      "destination": "/new-url",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    }
   ]
 }

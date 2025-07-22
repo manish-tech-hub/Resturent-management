@@ -1,12 +1,18 @@
-
-import React from "react";
+// PrivateRoute.jsx
+import React, { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 function PrivateRoute() {
-  const isLoggedIn = !!localStorage.getItem("token"); 
+  const [isAuth, setIsAuth] = useState(null);
 
-  return isLoggedIn ? <Outlet /> : <Navigate to="/login" />;
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuth(!!token);
+  }, []);
+
+  if (isAuth === null) return null; // or a loading spinner
+
+  return isAuth ? <Outlet /> : <Navigate to="/login" />;
 }
 
 export default PrivateRoute;
-
